@@ -1,5 +1,5 @@
 ### MST AIDS 2023-2024 (Département Génie Informatique)
-** Subject : The main purpose behind this lab is to get familiar with Scraping and NLP Pipeline.***\
+**Subject : The main purpose behind this lab is to get familiar with Scraping and NLP Pipeline.***\
 ** Realize by : Chibani Fahd.***\
 ** web source : Aljarida24r.***\
 ** Course : NLP.***\
