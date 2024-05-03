@@ -1,7 +1,8 @@
-# Lab 1
-**Author :** ***Ahmed Samady***\
-**Supervised by :** ***Pr. Lotfi El Aachak***\
-**Course :** ***NLP***\
+### MST AIDS 2023-2024 (Département Génie Informatique)
+** Subject : The main purpose behind this lab is to get familiar with Scraping and NLP Pipeline.
+** Realize by : Chibani Fahd
+** web source : Aljarida24r
+** Course : NLP
 This directory will contain everything that concerns Lab 1 of the NLP course.
 You can find the notebook [here](https://github.com/Samashi47/NLP_Labs/blob/main/Lab1/lab1.ipynb).
 ## 1. Introduction
