@@ -2,7 +2,7 @@
 **Subject : The main purpose behind this lab is to get familiar with Scraping and NLP Pipeline.***\
 **Realize by : Chibani Fahd.***\
 **web source : Aljarida24r.***\
-**Course : NLP.***\
+**Course : NLP.**\
 
 ## 1. Introduction
 In this lab, our primary objective is to acquaint ourselves with NLP's Rule-based techniques, Regex, and NLP Word Embedding. Through hands-on exploration, we aim to gain proficiency in these essential aspects of Natural Language Processing, enabling us to understand and apply them effectively in various contexts.
