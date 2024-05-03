@@ -3,24 +3,21 @@
 **Realize by : Chibani Fahd.***\
 **web source : Aljarida24r.***\
 **Course : NLP.***\
-This directory will contain everything that concerns Lab 1 of the NLP course.
-You can find the notebook [here](https://github.com/Samashi47/NLP_Labs/blob/main/Lab1/lab1.ipynb).
+
 ## 1. Introduction
-Since we had the choice to scrape any website that we would like on the condition that it has to be in Arabic, I chose to scrape the Moroccan news website `hespress.com` for some articles in the economy category.
-## 2. Scraping & storing to a MongoDB Database
-For the scraping, I chose to use `BeautifulSoup` as an **HTML** parser. Upon retrieving the **HTML** page that contains the links to the articles, only 12 articles are loaded, if you need more articles you need to scroll down the page, that's why in this test drive (Lab) we'll be only scraping these 12 articles, as we'll only use one of the articles (1st one) in the [notebook](https://github.com/Samashi47/NLP_Labs/blob/main/Lab1/lab1.ipynb).\
-As mentioned above we first retrieve the links and article titles from the economy category webpage that are placed in a certain `div` in the webpage, and store these links and titles in a `JSON` file, which I called [`hess_article_links.json`](https://github.com/Samashi47/NLP_Labs/blob/main/Lab1/data/hess_article_links.json). Furthermore, we send requests to each link in the `JSON` file to retrieve its **HTML** code, consequently retrieve the article contents which are also located in a certain `div` (we pinpoint these `div`s by using the inspect element feature in your preferred browser), after this we also store the article contents in a `JSON` file called [`hess_article_content.json`](https://github.com/Samashi47/NLP_Labs/blob/main/Lab1/data/hess_article_content.json).\
-We finally store these two `JSON` documents in a local MongoDB Database called `NLP_lab1` and two collections in this DB are named after the two files to be uploaded.
-## 3. NLP Pipeline
-This section we'll discuss the choices made in the Arabic NLP piepline.
-### 3.1 Tokenization
-Tokenization is fairly straightforward in Arabic, as it doesn't differ from other languages (e.g. English).\
-I chose to use a tokenizer from the `pyarabic` [[1]](#1) library, there are two ways to tokenize your text, either by word tokens or sentence tokens, I tried both in the [notebook](https://github.com/Samashi47/NLP_Labs/blob/main/Lab1/lab1.ipynb) for comparison.\
-We can take the following as an example:
+In this lab, our primary objective is to acquaint ourselves with NLP's Rule-based techniques, Regex, and NLP Word Embedding. Through hands-on exploration, we aim to gain proficiency in these essential aspects of Natural Language Processing, enabling us to understand and apply them effectively in various contexts.
+## 2. Upload data from MongoDB Database
+In this section, we accessed our MongoDB database to upload stored data. This data was gathered by scraping content from the Aljarida24 website, 
+## 3. Rule Based NLP and Regex
+Imagine a scenario where a business needs a streamlined way to generate bills from raw text provided by customers. In such cases, employing Python code with Regex capabilities can be invaluable. By utilizing Regex patterns, Python scripts can effectively extract relevant information such as item names, quantities, and prices from unstructured text. This enables businesses to automate the bill generation process, saving time and reducing errors.
+### 3.1 Data pre-procecing 
+Our workflow commences with the essential task of text refinement, focusing on the removal of stop words and adjectives such as 'new,' 'cool','fresh'... from the bill text. This meticulous cleansing is pivotal in simplifying the subsequent regex pattern matching process. By eliminating these unnecessary elements, we enhance the text's suitability for regex pattern matching, enabling more efficient and accurate extraction of relevant information. This initial cleaning phase optimizes the text for seamless integration into regex-based algorithms
 ```python
-word tokenization : ['ومقارنها', 'بالسنة', 'الماضية', '،']
-sentence tokenization : ['ومقارنها بالسنة الماضية،']
+Before cleaning : ['I bought three hundred two thousand twenty seven Samsung smartphones 150,333 $ each and four kilos of fresh banana for 2,4 dollar a kilogram']
+After cleaning : ['bought three hundred two thousand twenty seven Samsung smartphones 150,333 $ four kilos banana 2,4 dollar kilogram']
 ```
+
+
 ### 3.2 Removing punctuation
 Removing punctuation is a crucial step in the NLP pipeline as it cleans the text, reducing unnecessary computation. However, Arabic has some special characters for punctuation, such as the comma `،` and quotes `”`, which is why I included an Arabic punctuation string to handle punctuation removal.
 ```python
