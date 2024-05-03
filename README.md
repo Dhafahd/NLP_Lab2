@@ -1,7 +1,7 @@
 ### MST AIDS 2023-2024 (Département Génie Informatique)
-**Subject : The main purpose behind this lab is to get familiar with Scraping and NLP Pipeline.***\
-**Realize by : Chibani Fahd.***\
-**web source : Aljarida24r.***\
+**Subject : The main purpose behind this lab is to get familiar with Scraping and NLP Pipeline.**\
+**Realize by : Chibani Fahd.**\
+**web source : Aljarida24r.**\
 **Course : NLP.**\
 
 ## 1. Introduction
@@ -16,6 +16,12 @@ Our workflow commences with the essential task of text refinement, focusing on t
 Before cleaning : ['I bought three hundred two thousand twenty seven Samsung smartphones 150,333 $ each and four kilos of fresh banana for 2,4 dollar a kilogram']
 After cleaning : ['bought three hundred two thousand twenty seven Samsung smartphones 150,333 $ four kilos banana 2,4 dollar kilogram']
 ```
+### 3.2 Regex pattern :
+fter meticulously cleaning our text by removing extraneous elements such as stop words and adjectives, we proceed to employ regex for pattern matching. Utilizing regex, we define a pattern with three groups: the first capturing the price, the second identifying the product name, and the third representing the unit price. This systematic approach enables us to efficiently extract relevant information from the text and generate the bill.
+```python
+ pattern = r"((?:" + '|'.join(numbers) + r"|\d)(?:\s(?:" + '|'.join(numbers) + r"|\d|and))*)(.*?)(\d+[\.|\,]?\d*)\b\s*(\$|dollar)"
+```
+To convert textual numbers into their numerical values, we create a Python script (Word2num.py File )capable of intelligently parsing numbers up to 999,999,999,999. This script efficiently take the sentence, identifies numerical representations, and transforms them into their corresponding numeric values. 
 
 
 ### 3.2 Removing punctuation
@@ -30,6 +36,14 @@ Tokenized text without punctuation: ['ومقارنها', 'بالسنة', 'الم
 Sentence tokenized text with punctuation: ['ومقارنها بالسنة الماضية،']
 Sentence tokenized text without punctuation: ['ومقارنها بالسنة الماضية']
 ```
+### 4. Removing stopwords
+
+
+
+
+
+
+
 ### 3.3 Removing stopwords
 Stopwords reomval saves computation and keeping them doesn't provide much information in the NLP process, that's why it is recommended to eliminate them. Removing them is a simple process, simlified by the `NLTK` library which includes a corpus for Arabic stopwords.
 Here's an example of the output:
