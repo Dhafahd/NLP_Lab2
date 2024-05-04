@@ -22,6 +22,29 @@ fter meticulously cleaning our text by removing extraneous elements such as stop
  pattern = r"((?:" + '|'.join(numbers) + r"|\d)(?:\s(?:" + '|'.join(numbers) + r"|\d|and))*)(.*?)(\d+[\.|\,]?\d*)\b\s*(\$|dollar)"
 ```
 To convert textual numbers into their numerical values, we create a Python script (Word2num.py File )capable of intelligently parsing numbers up to 999,999,999,999. This script efficiently take the sentence, identifies numerical representations, and transforms them into their corresponding numeric values. 
+```python
+Sentence : I bought three hundred two thousand twenty seven Samsung smartphones 150,333 $ each, acquired five smartphones for 145$ each four kilos of fresh banana for 2,4 dollar a kilogram and one Hamburger with 4,5 dollar, ten boxes of tisseues for 2.5 $ each
+---------------------------------
+Results : Quantity: 302027
+Product:  Samsung smartphones 
+Price: 150,333
+---------------------------------
+Quantity: 5
+Product:  smartphones 
+Price: 145
+---------------------------------
+Quantity: 4
+Product:   banana 
+Price: 2,4
+---------------------------------
+Quantity: 1
+Product:  Hamburger
+Price: 4,5
+---------------------------------
+Quantity: 10
+Product:  boxes tisseues
+Price: 2.5
+```
 
 ## 4.  word Embedding :
 To better understand word embedding in Arabic text, we attempt to apply it to the paragraphs that we scraped in Lab 1.
