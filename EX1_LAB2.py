@@ -1,8 +1,4 @@
 import Word2num as w2n
-
-# s=w2n.word_to_num("Seven million three hundred ninety two thousand twenty seven")
-# print(s)
-
 from tabulate import tabulate
 import re
 from nltk.corpus import stopwords
@@ -30,24 +26,13 @@ print(filtered_tokens)
 weight_units_regex = r'\b(?:kg|kilos|lb|pound|[\w]*(?:gram|grams))\b'
 filtered_tokens = re.sub(weight_units_regex, '', filtered_tokens)
 
-
-numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', 'hundred', 'thousand', 'million']
-pattern = r"((?:" + '|'.join(numbers) + r"|\d)(?:\s(?:" + '|'.join(numbers) + r"|\d|and))*)(.*?)(\d+[\.|\,]?\d*)\b\s*(\$|dollar)"
-
+numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve',
+           'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'thirty',
+           'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', 'hundred', 'thousand', 'million']
+pattern = r"((?:" + '|'.join(numbers) + r"|\d)(?:\s(?:" + '|'.join(
+    numbers) + r"|\d|and))*)(.*?)(\d+[\.|\,]?\d*)\b\s*(\$|dollar)"
 
 matches = re.finditer(pattern, filtered_tokens)
-
-# print(text)
-
-# for match in matches:
-#     quantity = match.group(1)
-#     quantity=w2n.word_to_num(quantity)
-#     product = match.group(2)
-#     price = match.group(3)
-#     print("Quantity:", quantity)
-#     print("Product:", product)
-#     print("Price:", price)
-#     print()
 
 # Initialize lists to store data for each column
 products = []
@@ -62,10 +47,10 @@ for match in matches:
     quantity = w2n.word_to_num(quantity.replace(',', '.'))
     product = match.group(2)
     price = float(match.group(3).replace(',', '.'))  # Remove commas from the price string
-    
+
     # Calculate total price
     total_price = quantity * price
-    
+
     products.append(product)
     quantities.append(quantity)
     unit_prices.append(price)
